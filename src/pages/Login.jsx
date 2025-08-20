@@ -56,6 +56,7 @@ export default function Login() {
 
         {err && <p className="text-red-400 text-sm">{err}</p>}
 
+<<<<<<< HEAD
         <button
           type="submit"
           disabled={loading}
@@ -63,6 +64,37 @@ export default function Login() {
         >
           {loading ? "Logging in..." : "Login"}
         </button>
+=======
+          {/* Login Button */}
+          <button className="w-full bg-blue-500/80 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-200 flex items-center justify-center">
+            Login <span className="ml-2">&rarr;</span>
+          </button>
+
+          {/* Forgot Password */}
+          
+          <div className="flex justify-between mt-2">
+             <a href="/register" className="text-sm text-cyan-200 hover:underline">
+              Create Account
+            </a>
+      
+            <a href="#" className="text-sm text-cyan-200 hover:underline">
+              Forgot Password?
+            </a>
+          </div>
+
+          {/* Divider */}
+          <div className="flex items-center my-4">
+            <div className="flex-grow border-t border-white/40"></div>
+            <span className="px-3 text-gray-200 text-sm">OR</span>
+            <div className="flex-grow border-t border-white/40"></div>
+          </div>
+
+          {/* Google Login */}
+          <button className="w-full bg-white/20 text-white py-2 rounded-lg hover:bg-white/30 flex items-center justify-center border border-white/30">
+            <FcGoogle className="mr-2" size={18} /> Sign In with Google
+          </button>
+        </div>
+>>>>>>> de25af6 (routing and styles of login reg)
       </form>
 
       {/* Demo creds */}
