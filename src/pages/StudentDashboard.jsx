@@ -1,7 +1,7 @@
 import DashboardLayout from "../layouts/DashboardLayout";
 import { BookOpen, ClipboardCheck, CalendarDays } from "lucide-react";
 
-export default function Dashboard() {
+export default function StudentDashboard() {
   return (
     <DashboardLayout>
       {/* Welcome Header */}

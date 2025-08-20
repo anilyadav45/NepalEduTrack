@@ -1,39 +1,71 @@
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useAuth, getDashboardPath } from "../context/AuthContext";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 export default function Navbar() {
+  const { user, logout, isAuthenticated } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
   const [open, setOpen] = useState(false);
 
-  return (
-    <nav className="bg-blue-600 text-white px-4 py-3 shadow-md">
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
-        {/* Logo */}
-        <Link to="/" className="text-xl font-bold">SmartEduNepal</Link>
+  const handleLogout = () => {
+    logout();
+    navigate("/login", { replace: true });
+  };
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex gap-6">
-          <Link to="/" className="hover:text-gray-200">Home</Link>
-          <Link to="/dashboard" className="hover:text-gray-200">Dashboard</Link>
-          <Link to="/login" className="hover:text-gray-200">Login</Link>
-          <Link to="/register" className="hover:text-gray-200">Register</Link>
+  // Hide navbar on login page if you prefer
+  const hideOn = ["/login"];
+  if (hideOn.includes(location.pathname)) return null;
+
+  return (
+    <nav className="bg-blue-600 text-white px-4 py-3 shadow">
+      <div className="max-w-7xl mx-auto flex items-center justify-between">
+        <Link to="/" className="font-bold text-lg">SmartEdu Nepal</Link>
+
+        {/* Desktop */}
+        <div className="hidden md:flex items-center gap-6">
+          <Link to="/">Home</Link>
+          {isAuthenticated && user && (
+            <Link to={getDashboardPath(user.role)}>Dashboard</Link>
+          )}
+          {!isAuthenticated ? (
+            <Link to="/login">Login</Link>
+          ) : (
+            <button onClick={handleLogout} className="bg-white text-blue-600 px-3 py-1 rounded">
+              Logout
+            </button>
+          )}
+          {isAuthenticated && user && (
+            <span className="text-sm opacity-90">({user.role})</span>
+          )}
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden focus:outline-none"
-          onClick={() => setOpen(!open)}
-        >
+        {/* Mobile toggle */}
+        <button className="md:hidden text-2xl" onClick={() => setOpen((o) => !o)}>
           {open ? "✖" : "☰"}
         </button>
       </div>
 
-      {/* Mobile Dropdown */}
+      {/* Mobile menu (restyled) */}
       {open && (
-        <div className="md:hidden flex flex-col mt-2 gap-3 bg-blue-700 p-3 rounded-lg">
-          <Link to="/" onClick={() => setOpen(false)}>Home</Link>
-          <Link to="/dashboard" onClick={() => setOpen(false)}>Dashboard</Link>
-          <Link to="/login" onClick={() => setOpen(false)}>Login</Link>
-          <Link to="/register" onClick={() => setOpen(false)}>Register</Link>
+        <div className="md:hidden mt-2 bg-white text-blue-600 rounded-xl shadow-lg p-4 flex flex-col gap-3">
+          <Link to="/" onClick={() => setOpen(false)} className="hover:underline">
+            Home
+          </Link>
+          {isAuthenticated && user && (
+            <Link to={getDashboardPath(user.role)} onClick={() => setOpen(false)} className="hover:underline">
+              Dashboard
+            </Link>
+          )}
+          {!isAuthenticated ? (
+            <Link to="/login" onClick={() => setOpen(false)} className="hover:underline">
+              Login
+            </Link>
+          ) : (
+            <button onClick={handleLogout} className="text-left hover:underline">
+              Logout
+            </button>
+          )}
         </div>
       )}
     </nav>
