@@ -1,5 +1,7 @@
+import AdminLayout from "../layouts/AdminLayout";
 export default function AdminDashboard() {
   return (
+  <AdminLayout>
     <div className="max-w-6xl mx-auto bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-8 mt-8 text-white">
       {/* Title */}
       <h1 className="text-3xl font-bold text-cyan-300 drop-shadow">
@@ -18,5 +20,6 @@ export default function AdminDashboard() {
         </p>
       </div>
     </div>
+    </AdminLayout>
   );
 }

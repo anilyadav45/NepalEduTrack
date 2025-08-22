@@ -9,7 +9,7 @@ import TeacherDashboard from "./pages/TeacherDashboard";
 import StudentDashboard from "./pages/StudentDashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 
-// Optional helper to route /dashboard → role dashboard
+// Optional helper component to redirect based on user role
 function DashboardIndex() {
   const { user } = useAuth();
   if (!user) return <Navigate to="/login" replace />;

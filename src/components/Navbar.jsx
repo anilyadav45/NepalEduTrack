@@ -18,9 +18,9 @@ export default function Navbar() {
   if (hideOn.includes(location.pathname)) return null;
 
   return (
-    <nav className="bg-blue-600 text-white px-4 py-3 shadow">
+    <nav className="bg-transparent text-white px-4 py-3">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link to="/" className="font-bold text-lg">SmartEdu Nepal</Link>
+        <Link to="/" className="font-bold text-lg">NepEduX</Link>
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-6">
@@ -41,14 +41,14 @@ export default function Navbar() {
         </div>
 
         {/* Mobile toggle */}
-        <button className="md:hidden text-2xl" onClick={() => setOpen((o) => !o)}>
+        <button className="md:hidden text-2xl cursor-pointer" onClick={() => setOpen((o) => !o)}>
           {open ? "✖" : "☰"}
         </button>
       </div>
 
       {/* Mobile menu (restyled) */}
       {open && (
-        <div className="md:hidden mt-2 bg-white text-blue-600 rounded-xl shadow-lg p-4 flex flex-col gap-3">
+        <div className="md:hidden mt-2 bg-transparent text-white text-blue-600 rounded-xl shadow-lg p-4 flex flex-col gap-3">
           <Link to="/" onClick={() => setOpen(false)} className="hover:underline">
             Home
           </Link>

@@ -27,84 +27,62 @@ export default function Login() {
   };
 
   return (
-    <div className="w-full max-w-md bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl shadow-lg p-8 text-white">
-      {/* Title */}
-      <h2 className="text-3xl font-bold text-center text-cyan-300 drop-shadow">
-        Login
-      </h2>
+    <div className="flex items-center justify-center min-h-screen  to-black p-4">
+      {/* Single Transparent Login Box */}
+      <div className="w-full max-w-md  bg-transparent   p-10 text-white">
+        {/* Branding */}
+       <div className="login-desc mb-10">
+         <h1 className="text-4xl font-extrabold text-center text-cyan-400 mb-2 tracking-wide mb-4">
+          NepEduX
+        </h1>
+        <p className="text-center text-gray-300 mb-6 text-sm">
+          Enter login credentials provided by College or School
+        </p>
+       </div>
 
-      {/* Form */}
-      <form className="mt-6 space-y-4" onSubmit={onSubmit}>
-        <input
-          name="email"
-          type="email"
-          placeholder="Email"
-          className="w-full bg-white/20 text-white placeholder-gray-300 border border-white/30 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-          value={form.email}
-          onChange={onChange}
-          required
-        />
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          className="w-full bg-white/20 text-white placeholder-gray-300 border border-white/30 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-          value={form.password}
-          onChange={onChange}
-          required
-        />
+        {/* Form */}
+        <form className="space-y-5" onSubmit={onSubmit}>
+          <input
+            name="email"
+            type="email"
+            placeholder="Email"
+            className="w-full bg-cyan-900/20 text-white placeholder-gray-400 border border-cyan-400/30 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition"
+            value={form.email}
+            onChange={onChange}
+            required
+          />
+          <input
+            name="password"
+            type="password"
+            placeholder="Password"
+            className="w-full bg-cyan-900/20 text-white placeholder-gray-400 border border-cyan-400/30 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition"
+            value={form.password}
+            onChange={onChange}
+            required
+          />
 
-        {err && <p className="text-red-400 text-sm">{err}</p>}
+          {/* Error */}
+          {err && <p className="text-red-400 text-sm">{err}</p>}
 
-<<<<<<< HEAD
-        <button
-          type="submit"
-          disabled={loading}
-          className="w-full bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-2 rounded-lg shadow-lg transition disabled:opacity-50"
-        >
-          {loading ? "Logging in..." : "Login"}
-        </button>
-=======
           {/* Login Button */}
-          <button className="w-full bg-blue-500/80 text-white py-2 rounded-lg hover:bg-blue-600 transition duration-200 flex items-center justify-center">
-            Login <span className="ml-2">&rarr;</span>
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full bg-cyan-500 hover:bg-cyan-600 text-white font-semibold py-2 rounded-lg shadow-md transition disabled:opacity-50"
+          >
+            {loading ? "Logging in..." : "Login"}
           </button>
 
-          {/* Forgot Password */}
-          
-          <div className="flex justify-between mt-2">
-             <a href="/register" className="text-sm text-cyan-200 hover:underline">
-              Create Account
+          {/* Links */}
+          <div className="flex justify-between text-sm mt-3">
+            <a href="/report-login" className="text-cyan-200 hover:underline">
+              Trouble logging in?
             </a>
-      
-            <a href="#" className="text-sm text-cyan-200 hover:underline">
+            <a href="/forgot-password" className="text-cyan-200 hover:underline">
               Forgot Password?
             </a>
           </div>
-
-          {/* Divider */}
-          <div className="flex items-center my-4">
-            <div className="flex-grow border-t border-white/40"></div>
-            <span className="px-3 text-gray-200 text-sm">OR</span>
-            <div className="flex-grow border-t border-white/40"></div>
-          </div>
-
-          {/* Google Login */}
-          <button className="w-full bg-white/20 text-white py-2 rounded-lg hover:bg-white/30 flex items-center justify-center border border-white/30">
-            <FcGoogle className="mr-2" size={18} /> Sign In with Google
-          </button>
-        </div>
->>>>>>> de25af6 (routing and styles of login reg)
-      </form>
-
-      {/* Demo creds */}
-      <div className="mt-6 text-sm text-cyan-200">
-        <p className="font-semibold mb-1">Demo Accounts:</p>
-        <ul className="list-disc ml-5 space-y-1">
-          <li>Admin: admin@school.com / admin123</li>
-          <li>Teacher: teacher@school.com / teach123</li>
-          <li>Student: student@school.com / stud123</li>
-        </ul>
+        </form>
       </div>
     </div>
   );
