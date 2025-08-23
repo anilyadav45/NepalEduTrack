@@ -1,6 +1,8 @@
+import TeacherLayout from "../layouts/TeacherLayout";
 export default function TeacherDashboard() {
   return (
-    <div className="max-w-6xl mx-auto bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-8 mt-8 text-white">
+  <TeacherLayout>
+    <div className="max-w-6xl mx-auto bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-8 mt-10 text-white">
       {/* Title */}
       <h1 className="text-3xl font-bold text-cyan-300 drop-shadow">
         Teacher Dashboard
@@ -18,5 +20,6 @@ export default function TeacherDashboard() {
         </p>
       </div>
     </div>
+    </TeacherLayout>
   );
 }

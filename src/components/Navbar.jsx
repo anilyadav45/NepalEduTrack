@@ -20,7 +20,7 @@ export default function Navbar() {
   return (
     <nav className="bg-transparent text-white px-4 py-3">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link to="/" className="font-bold text-lg">NepEduX</Link>
+        <Link to="/" className="font-bold text-lg">SmartEduX</Link>
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-6">
@@ -62,7 +62,7 @@ export default function Navbar() {
               Login
             </Link>
           ) : (
-            <button onClick={handleLogout} className="text-left hover:underline">
+            <button onClick={handleLogout} className="text-left hover:underline cursor-pointer">
               Logout
             </button>
           )}

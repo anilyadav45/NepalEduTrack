@@ -1,15 +1,88 @@
-import { Link } from "react-router-dom";
+// components/Sidebar.jsx
+import { Link, useLocation } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import { 
+  Home, 
+  Users, 
+  BookOpen, 
+  BarChart3, 
+  MessageSquare, 
+  Settings,
+  ClipboardList
+} from "lucide-react";
 
 export default function Sidebar() {
+  const { user } = useAuth();
+  const location = useLocation();
+
+  // Admin menu items
+  const adminMenu = [
+    { to: "/dashboard", label: "Dashboard", icon: <Home className="h-5 w-5" /> },
+    { to: "/dashboard/users", label: "Users", icon: <Users className="h-5 w-5" /> },
+    { to: "/dashboard/courses", label: "Courses", icon: <BookOpen className="h-5 w-5" /> },
+    { to: "/dashboard/analytics", label: "Analytics", icon: <BarChart3 className="h-5 w-5" /> },
+    { to: "/dashboard/communications", label: "Communications", icon: <MessageSquare className="h-5 w-5" /> },
+    { to: "/dashboard/settings", label: "Settings", icon: <Settings className="h-5 w-5" /> },
+  ];
+
+  // Teacher menu items
+  const teacherMenu = [
+    { to: "/dashboard", label: "Overview", icon: <Home className="h-5 w-5" /> },
+    { to: "/dashboard/classes", label: "My Classes", icon: <BookOpen className="h-5 w-5" /> },
+    { to: "/dashboard/students", label: "Students", icon: <Users className="h-5 w-5" /> },
+    { to: "/dashboard/assignments", label: "Assignments", icon: <ClipboardList className="h-5 w-5" /> },
+  ];
+
+  const menuItems = user?.role === "admin" ? adminMenu : teacherMenu;
+
   return (
-    <aside className="w-64 bg-transparent-100 p-4 h-screen shadow-md hidden md:block">
-      <h2 className="text-lg font-bold mb-6">Dashboard Menu</h2>
-      <ul className="flex flex-col gap-4">
-        <li><Link to="/dashboard">Overview</Link></li>
-        <li><Link to="/dashboard/teachers">Teachers</Link></li>
-        <li><Link to="/dashboard/students">Students</Link></li>
-        <li><Link to="/dashboard/settings">Settings</Link></li>
-      </ul>
-    </aside>
+    //sidebar only visible on large screen
+    <div className="hidden lg:flex lg:flex-col w-64 bg-gray-900 text-white h-screen fixed left-0 top-0 overflow-y-auto">
+      
+      {/* Logo */}
+      <div className="p-6 border-b border-gray-700">
+        <h1 className="text-xl font-bold text-cyan-400 flex items-center">
+          <BarChart3 className="h-6 w-6 mr-2" />
+          SmartEdux
+        </h1>
+      </div>
+      
+      {/* Navigation */}
+      <nav className="flex-1 p-4">
+        <ul className="space-y-2">
+          {menuItems.map((item) => {
+            const isActive = location.pathname === item.to;
+            return (
+              <li key={item.to}>
+                <Link
+                  to={item.to}
+                  className={`flex items-center px-3 py-3 rounded-lg transition-colors ${
+                    isActive
+                      ? "bg-cyan-600 text-white"
+                      : "text-gray-300 hover:bg-gray-800 hover:text-white"
+                  }`}
+                >
+                  <span className="mr-3">{item.icon}</span>
+                  <span>{item.label}</span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
+      
+      {/* Profile bottom */}
+      <div className="p-4 border-t border-gray-700">
+        <div className="flex items-center">
+          <div className="w-10 h-10 rounded-full bg-cyan-600 flex items-center justify-center text-white font-semibold">
+            {user?.name?.charAt(0) || user?.email?.charAt(0) || 'U'}
+          </div>
+          <div className="ml-3">
+            <p className="text-sm font-medium text-white">{user?.name || 'User'}</p>
+            <p className="text-xs text-gray-400 capitalize">{user?.role}</p>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
