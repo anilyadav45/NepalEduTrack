@@ -16,7 +16,7 @@ import {
   X,
 } from "lucide-react";
 import { useState } from "react";
-import AddUser from "./AddUser";
+import AddUser from "./users/AddUser";
 import { Link } from "react-router-dom";
 
 export default function AdminDashboard() {
@@ -36,11 +36,11 @@ export default function AdminDashboard() {
         {/* Admin Actions - Add User and Search */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4">
           {/* Add User Button */}
-          <Route path="/dashboard/admin/add-user" element={<AddUser />}>
+          <Link to="/dashboard/admin/add-user">
           <button className="flex items-center justify-center bg-cyan-600 text-white px-4 py-3 rounded-lg hover:bg-cyan-700 transition w-full md:w-auto">
             <PlusCircle className="h-5 w-5 mr-2" />
             Add New User
-          </button></Route>
+          </button></Link>
 
           {/* Search and Filter Section */}
           <div className="flex flex-col sm:flex-row gap-3 w-full md:w-2/3">
