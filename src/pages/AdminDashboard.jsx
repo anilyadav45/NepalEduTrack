@@ -16,6 +16,8 @@ import {
   X,
 } from "lucide-react";
 import { useState } from "react";
+import AddUser from "./AddUser";
+import { Link } from "react-router-dom";
 
 export default function AdminDashboard() {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -34,10 +36,11 @@ export default function AdminDashboard() {
         {/* Admin Actions - Add User and Search */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4">
           {/* Add User Button */}
+          <Route path="/dashboard/admin/add-user" element={<AddUser />}>
           <button className="flex items-center justify-center bg-cyan-600 text-white px-4 py-3 rounded-lg hover:bg-cyan-700 transition w-full md:w-auto">
             <PlusCircle className="h-5 w-5 mr-2" />
             Add New User
-          </button>
+          </button></Route>
 
           {/* Search and Filter Section */}
           <div className="flex flex-col sm:flex-row gap-3 w-full md:w-2/3">
@@ -149,28 +152,7 @@ export default function AdminDashboard() {
           />
         </div>
 
-        {/* Charts Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          {/* Registration Chart */}
-          <div className="bg-white rounded-xl shadow-md p-6">
-            <h2 className="text-xl font-semibold text-gray-800 mb-4">
-              Monthly Student Registrations
-            </h2>
-            <div className="h-64 flex items-end justify-between px-4">
-              {[65, 80, 120, 140, 175, 200].map((value, index) => (
-                <div key={index} className="flex flex-col items-center">
-                  <div
-                    className="w-10 bg-cyan-400 rounded-t-md"
-                    style={{ height: `${value / 2.5}px` }}
-                  ></div>
-                  <span className="text-xs text-gray-500 mt-2">
-                    {["Jan", "Feb", "Mar", "Apr", "May", "Jun"][index]}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+       
 
         {/* Recent Activity */}
         <div className="bg-white rounded-xl shadow-md p-6">
@@ -180,39 +162,26 @@ export default function AdminDashboard() {
           <div className="space-y-4">
             <ActivityItem
               icon={<PlusCircle className="h-5 w-5 text-blue-500" />}
-              user="John Doe"
+              user="Anil Yadav"
               action="enrolled in"
-              target="Introduction to UX"
+              target="Machine Learrning"
               time="3 hours ago"
             />
             <ActivityItem
               icon={<CheckCircle className="h-5 w-5 text-green-500" />}
-              user="Jane Smith"
+              user="Radha Sharma"
               action="completed"
               target="Advanced Javascript"
               time="Yesterday"
             />
             <ActivityItem
               icon={<PlusCircle className="h-5 w-5 text-purple-500" />}
-              user="Michael Brown"
+              user="Mohit kumar"
               action="created a new course"
               target="Data Science 101"
               time="2 days ago"
             />
-            <ActivityItem
-              icon={<Edit3 className="h-5 w-5 text-yellow-500" />}
-              user="Sarah Wilson"
-              action="updated course"
-              target="React for Beginners"
-              time="2 days ago"
-            />
-            <ActivityItem
-              icon={<XCircle className="h-5 w-5 text-red-500" />}
-              user="David Johnson"
-              action="deleted course"
-              target="SQL Basics"
-              time="3 days ago"
-            />
+         
           </div>
         </div>
       </div>

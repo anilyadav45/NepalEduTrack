@@ -8,6 +8,8 @@ import AdminDashboard from "./pages/AdminDashboard";
 import TeacherDashboard from "./pages/TeacherDashboard";
 import StudentDashboard from "./pages/StudentDashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
+import AddUser from "./pages/users/AddUser";
+
 
 // Optional helper component to redirect based on user role
 function DashboardIndex() {
@@ -35,6 +37,8 @@ export default function App() {
               {/* Role locked routes */}
               <Route element={<ProtectedRoute allow={["admin"]} />}>
                 <Route path="/dashboard/admin" element={<AdminDashboard />} />
+                <Route path="/dashboard/admin/add-user" element={<AddUser />} />
+
               </Route>
               <Route element={<ProtectedRoute allow={["teacher"]} />}>
                 <Route path="/dashboard/teacher" element={<TeacherDashboard />} />
