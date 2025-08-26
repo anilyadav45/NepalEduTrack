@@ -8,8 +8,8 @@ import AdminDashboard from "./pages/AdminDashboard";
 import TeacherDashboard from "./pages/TeacherDashboard";
 import StudentDashboard from "./pages/StudentDashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
-import AddUser from "./pages/users/AddUser";
-
+import StudentForm from "./pages/users/StudentForm";
+import TeacherForm from "./pages/users/TeacherForm";
 
 // Optional helper component to redirect based on user role
 function DashboardIndex() {
@@ -37,12 +37,15 @@ export default function App() {
               {/* Role locked routes */}
               <Route element={<ProtectedRoute allow={["admin"]} />}>
                 <Route path="/dashboard/admin" element={<AdminDashboard />} />
-                <Route path="/dashboard/admin/add-user" element={<AddUser />} />
-
+                {/* Remove the old AddUser route */}
+                <Route path="/dashboard/admin/add-student" element={<StudentForm />} />
+                <Route path="/dashboard/admin/add-teacher" element={<TeacherForm />} />
               </Route>
+
               <Route element={<ProtectedRoute allow={["teacher"]} />}>
                 <Route path="/dashboard/teacher" element={<TeacherDashboard />} />
               </Route>
+
               <Route element={<ProtectedRoute allow={["student"]} />}>
                 <Route path="/dashboard/student" element={<StudentDashboard />} />
               </Route>

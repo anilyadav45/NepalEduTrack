@@ -4,10 +4,7 @@ import {
   Users,
   BookOpen,
   BarChart3,
-  TrendingUp,
   CheckCircle,
-  XCircle,
-  Edit3,
   PlusCircle,
   Search,
   Filter,
@@ -16,11 +13,13 @@ import {
   X,
 } from "lucide-react";
 import { useState } from "react";
-import AddUser from "./users/AddUser";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import RoleSelectionModal from "./users/RoleSelectorModal";
 
 export default function AdminDashboard() {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [isRoleModalOpen, setIsRoleModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <AdminLayout>
@@ -36,31 +35,62 @@ export default function AdminDashboard() {
         {/* Admin Actions - Add User and Search */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4">
           {/* Add User Button */}
-          <Link to="/dashboard/admin/add-user">
-          <button className="flex items-center justify-center bg-cyan-600 text-white px-4 py-3 rounded-lg hover:bg-cyan-700 transition w-full md:w-auto">
+          <button
+            onClick={() => setIsRoleModalOpen(true)}
+            className="flex items-center justify-center bg-cyan-600 text-white px-4 py-3 rounded-lg hover:bg-cyan-700 transition w-full md:w-auto"
+          >
             <PlusCircle className="h-5 w-5 mr-2" />
             Add New User
-          </button></Link>
+          </button>
+
+          {/* Role Selection Modal */}
+          <RoleSelectionModal
+            isOpen={isRoleModalOpen}
+            onClose={() => setIsRoleModalOpen(false)}
+            onSelectRole={(role) => {
+              setIsRoleModalOpen(false);
+              if (role === "student") navigate("/dashboard/admin/add-student");
+              if (role === "teacher") navigate("/dashboard/admin/add-teacher");
+            }}
+          />
 
           {/* Search and Filter Section */}
-          <div className="flex flex-col sm:flex-row gap-3 w-full md:w-2/3">
-            {/* Filter Toggle Button */}
-            <button
-              onClick={() => setIsFilterOpen(!isFilterOpen)}
-              className="flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 text-gray-700 w-full sm:w-auto"
-            >
-              <Filter className="h-4 w-4" />
-              Filters
-              {isFilterOpen ? (
-                <ChevronUp className="h-4 w-4" />
-              ) : (
-                <ChevronDown className="h-4 w-4" />
-              )}
-            </button>
+          <div className="w-full md:w-2/3 flex flex-col gap-3">
+            {/* Top Row: Filter Button + Search + Search Button */}
+            <div className="flex flex-col sm:flex-row gap-3 w-full">
+              {/* Filter Toggle Button */}
+              <button
+                onClick={() => setIsFilterOpen(!isFilterOpen)}
+                className="flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 text-gray-700 w-full sm:w-auto"
+              >
+                <Filter className="h-4 w-4" />
+                Filters
+                {isFilterOpen ? (
+                  <ChevronUp className="h-4 w-4" />
+                ) : (
+                  <ChevronDown className="h-4 w-4" />
+                )}
+              </button>
 
-            {/* Filter Options - Only visible when isFilterOpen is true */}
+              {/* Search Input */}
+              <div className="relative flex-1 max-w-md">
+                <Search className="h-5 w-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
+                <input
+                  type="text"
+                  placeholder="Search users or courses..."
+                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 text-black"
+                />
+              </div>
+
+              {/* Search button */}
+              <button className="px-4 py-2 bg-cyan-500 text-white rounded-lg hover:bg-cyan-600">
+                Search
+              </button>
+            </div>
+
+            {/* Filters Row - Only visible when isFilterOpen is true */}
             {isFilterOpen && (
-              <div className="bg-gray-50 p-4 rounded-lg mb-6 border border-gray-200">
+              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
                 <div className="flex justify-between items-center mb-3">
                   <h3 className="font-medium text-gray-700">Filters</h3>
                   <button
@@ -104,27 +134,10 @@ export default function AdminDashboard() {
                 </div>
               </div>
             )}
-
-            {/* Search Input */}
-            <div className="relative flex-1 max-w-md">
-              {" "}
-              {/* made width medium */}
-              <Search className="h-5 w-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
-              <input
-                type="text"
-                placeholder="Search users or courses..."
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 text-black"
-              />
-            </div>
-
-            {/* Search button near filter */}
-            <button className="ml-2 px-4 py-2 bg-cyan-500 text-white rounded-lg hover:bg-cyan-600">
-              Search
-            </button>
           </div>
         </div>
 
-        {/* Stats Grid -- come from db later for now it is dummy for styling*/}
+        {/* Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <StatCard
             title="Total Students"
@@ -151,8 +164,6 @@ export default function AdminDashboard() {
             trend={{ value: "+5%", positive: true }}
           />
         </div>
-
-       
 
         {/* Recent Activity */}
         <div className="bg-white rounded-xl shadow-md p-6">
@@ -181,7 +192,6 @@ export default function AdminDashboard() {
               target="Data Science 101"
               time="2 days ago"
             />
-         
           </div>
         </div>
       </div>
