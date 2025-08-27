@@ -1,6 +1,8 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth, getDashboardPath } from "../context/AuthContext";
+import { GraduationCap } from "lucide-react";
 import { useState } from "react";
+import { ImageOff } from "lucide-react";
 
 export default function Navbar() {
   const { user, logout, isAuthenticated } = useAuth();
@@ -21,7 +23,13 @@ export default function Navbar() {
     <nav className="bg-transparent text-white px-4 py-3">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo / Brand */}
-        <Link to="/" className="font-bold text-lg">SmartEduX</Link>
+        <Link
+          to="/"
+          className="flex items-center gap-2 font-bold text-xl text-white-900"
+        >
+          <GraduationCap className="w-8 h-8" />
+          SmartEduX
+        </Link>
 
         {/* Desktop menu */}
         <div className="hidden md:flex items-center gap-6">
@@ -62,7 +70,11 @@ export default function Navbar() {
       {/* Mobile menu */}
       {open && (
         <div className="md:hidden mt-2 bg-transparent text-white rounded-xl shadow-lg p-4 flex flex-col gap-3">
-          <Link to="/" onClick={() => setOpen(false)} className="hover:underline">
+          <Link
+            to="/"
+            onClick={() => setOpen(false)}
+            className="hover:underline"
+          >
             Home
           </Link>
 

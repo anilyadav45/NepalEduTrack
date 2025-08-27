@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import AuthProvider, { useAuth, getDashboardPath } from "./context/AuthContext";
 import PublicLayout from "./layouts/PublicLayout";
 import PrivateLayout from "./layouts/PrivateLayout";
@@ -38,16 +43,28 @@ export default function App() {
               <Route element={<ProtectedRoute allow={["admin"]} />}>
                 <Route path="/dashboard/admin" element={<AdminDashboard />} />
                 {/* Remove the old AddUser route */}
-                <Route path="/dashboard/admin/add-student" element={<StudentForm />} />
-                <Route path="/dashboard/admin/add-teacher" element={<TeacherForm />} />
+                <Route
+                  path="/dashboard/admin/add-student"
+                  element={<StudentForm />}
+                />
+                <Route
+                  path="/dashboard/admin/add-teacher"
+                  element={<TeacherForm />}
+                />
               </Route>
 
               <Route element={<ProtectedRoute allow={["teacher"]} />}>
-                <Route path="/dashboard/teacher" element={<TeacherDashboard />} />
+                <Route
+                  path="/dashboard/teacher"
+                  element={<TeacherDashboard />}
+                />
               </Route>
 
               <Route element={<ProtectedRoute allow={["student"]} />}>
-                <Route path="/dashboard/student" element={<StudentDashboard />} />
+                <Route
+                  path="/dashboard/student"
+                  element={<StudentDashboard />}
+                />
               </Route>
             </Route>
 

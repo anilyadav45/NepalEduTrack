@@ -7,8 +7,8 @@ export default function StudentDashboard() {
   return (
     <StudentLayout>
       {/* Welcome Header */}
-      <div className="bg-gradient-to-r from-blue-500 to-cyan-700 p-6 rounded-xl text-white shadow-lg">
-        <h1 className="text-2xl font-bold">Welcome back, Nitesh Yadav 👋</h1>
+      <div className="bg-gradient-to-r from-blue-500 to-cyan-900 p-6 rounded-xl text-white shadow-lg">
+        <h1 className="text-2xl font-bold">Welcome back, Anil Yadav 👋</h1>
         <p className="mt-1 text-blue-100">
           Here’s what’s happening with your courses today.
         </p>

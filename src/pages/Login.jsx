@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth, getDashboardPath } from "../context/AuthContext";
+import { GraduationCap } from "lucide-react";
 
 export default function Login() {
   const { login } = useAuth();
@@ -27,9 +28,9 @@ export default function Login() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen  to-black p-4">
+    <div className="flex items-center justify-center min-h-screen p-4">
       {/* Single Transparent Login Box */}
-      <div className="w-full max-w-md  bg-transparent   p-10 text-white">
+      <div className="w-full max-w-md    p-10 text-white">
         {/* Branding */}
        <div className="login-desc mb-10">
          <h1 className="text-4xl font-extrabold text-center text-cyan-400 mb-2 tracking-wide mb-4">
