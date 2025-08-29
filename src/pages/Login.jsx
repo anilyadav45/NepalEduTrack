@@ -28,9 +28,9 @@ export default function Login() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen p-4">
-      {/* Single Transparent Login Box */}
-      <div className="w-full max-w-md    p-10 text-white">
+    <div className="flex bg-gray-900 items-center justify-center min-h-screen p-4">
+
+      <div className="w-full max-w-md   p-10 text-white">
         {/* Branding */}
        <div className="login-desc mb-10">
          <h1 className="text-4xl font-extrabold text-center text-cyan-400 mb-2 tracking-wide mb-4">

@@ -37,15 +37,7 @@ export default function Sidebar() {
 
   return (
     //sidebar only visible on large screen
-    <div className="hidden lg:flex lg:flex-col w-64 bg-gray-900 text-white h-screen fixed left-0 top-0 overflow-y-auto">
-      
-      {/* Logo */}
-      <div className="p-6 border-b border-gray-700">
-        <h1 className="text-xl font-bold text-cyan-400 flex items-center">
-          <BarChart3 className="h-6 w-6 mr-2" />
-          SmartEdux
-        </h1>
-      </div>
+    <div className="hidden lg:flex lg:flex-col w-64 bg-gray-900 text-white min-h-screen fixed left-0  overflow-y-auto">
       
       {/* Navigation */}
       <nav className="flex-1 p-4">
