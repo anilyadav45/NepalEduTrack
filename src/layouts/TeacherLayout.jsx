@@ -1,7 +1,7 @@
 import Sidebar from "../components/Sidebar";
 export default function TeacherLayout({children}) {
   return (
-      <div className="flex min-h-screen bg-gray-100">
+      <div className="flex min-h-screen bg-gray-100 overflow-x-hidden">
       {/* Sidebar visible only on large screens */}
       <div className="hidden lg:block">
         <Sidebar />

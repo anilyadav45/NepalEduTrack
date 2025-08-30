@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 
 export default function PrivateLayout() {
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-700 via-blue-800 to-cyan-900">
+    <div className="min-h-screen flex flex-col bg-gray-800">
       {/* Navbar */}
       <Navbar />
 
