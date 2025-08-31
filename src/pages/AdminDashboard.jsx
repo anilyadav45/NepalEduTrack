@@ -192,56 +192,9 @@ export default function AdminDashboard() {
               target="Data Science 101"
               time="2 days ago"
             />
-            <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
-        <div>23</div>
           </div>
-          
         </div>
-        
       </div>
-      
     </AdminLayout>
   );
 }

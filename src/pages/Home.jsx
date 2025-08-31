@@ -10,7 +10,7 @@ export default function Home() {
       </div>
 
       {/* Main Title */}
-      <h1 className="text-3xl md:text-5xl font-extrabold text-gray-900">
+      <h1 className="text-3xl md:text-5xl font-extrabold text-green-200">
         Welcome to <span className="text-blue-200">SmartEduX</span>
       </h1>
 

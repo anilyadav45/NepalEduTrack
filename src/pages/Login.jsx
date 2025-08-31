@@ -33,7 +33,7 @@ export default function Login() {
       <div className="w-full max-w-md   p-10 text-white">
         {/* Branding */}
        <div className="login-desc mb-10">
-         <h1 className="text-4xl font-extrabold text-center text-cyan-400 mb-2 tracking-wide mb-4">
+         <h1 className="text-4xl font-extrabold text-center text-blue-200 mb-2 tracking-wide mb-4">
           SmartEduX
         </h1>
         <p className="text-center text-gray-300 mb-6 text-sm">

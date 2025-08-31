@@ -13,7 +13,7 @@ export default function PrivateLayout() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-black/40 backdrop-blur-md text-cyan-200 text-center py-3 text-sm">
+      <footer className="bg-gray/40 backdrop-blur-md text-cyan-200 text-center py-3 text-sm">
         © 2025 SmartEdu Nepal
       </footer>
     </div>
