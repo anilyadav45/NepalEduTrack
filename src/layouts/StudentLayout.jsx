@@ -1,7 +1,7 @@
 
 export default function StudentLayout({ children }) {
   return (
-    <div className="flex min-h-screen bg-gradient-to-br from-blue-900 via-blue-700 to-cyan-600">
+    <div className="flex min-h-screen bg-gradient-to-br from-gray-900 via-gray-700 to-cyan-600">
       {/* Sidebar */}
       {/* <Sidebar /> */}
 

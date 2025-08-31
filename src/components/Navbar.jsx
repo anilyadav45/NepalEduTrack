@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth, getDashboardPath } from "../context/AuthContext";
 import { GraduationCap } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ImageOff } from "lucide-react";
 
 export default function Navbar() {
@@ -19,8 +19,24 @@ export default function Navbar() {
   const hideOn = ["/login"];
   if (hideOn.includes(location.pathname)) return null;
 
+  //use shadow effect on scroll
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="bg-transparent text-white px-4 py-3">
+    <nav
+      className={`sticky top-0 z-50 bg-gray-900 text-white px-4 py-3 min-h-20 transition-all duration-300 ${
+        isScrolled ? "shadow-lg shadow-black/50" : ""
+      }`}
+    >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo / Brand */}
         <Link

@@ -23,7 +23,7 @@ export default function AdminDashboard() {
 
   return (
     <AdminLayout>
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto ">
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-800">Admin Dashboard</h1>
@@ -192,9 +192,56 @@ export default function AdminDashboard() {
               target="Data Science 101"
               time="2 days ago"
             />
+            <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
+        <div>23</div>
           </div>
+          
         </div>
+        
       </div>
+      
     </AdminLayout>
   );
 }
