@@ -10,7 +10,8 @@ import {
   Settings,
   ClipboardList
 } from "lucide-react";
-
+//components import
+import UsersPage from "../pages/users/UsersPage";
 export default function Sidebar() {
   const { user } = useAuth();
   const location = useLocation();
@@ -18,7 +19,7 @@ export default function Sidebar() {
   // Admin menu items
   const adminMenu = [
     { to: "/dashboard", label: "Dashboard", icon: <Home className="h-5 w-5" /> },
-    { to: "/dashboard/users", label: "Users", icon: <Users className="h-5 w-5" /> },
+    { to: "/dashboard/admin/users", label: "Users", icon: <Users className="h-5 w-5" /> },
     { to: "/dashboard/courses", label: "Courses", icon: <BookOpen className="h-5 w-5" /> },
     { to: "/dashboard/analytics", label: "Analytics", icon: <BarChart3 className="h-5 w-5" /> },
     { to: "/dashboard/communications", label: "Communications", icon: <MessageSquare className="h-5 w-5" /> },

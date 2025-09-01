@@ -15,6 +15,7 @@ import StudentDashboard from "./pages/StudentDashboard";
 import ProtectedRoute from "./components/ProtectedRoute";
 import StudentForm from "./pages/users/StudentForm";
 import TeacherForm from "./pages/users/TeacherForm";
+import UsersPage from "./pages/users/UsersPage";
 
 // Optional helper component to redirect based on user role
 function DashboardIndex() {
@@ -66,6 +67,7 @@ export default function App() {
                   element={<StudentDashboard />}
                 />
               </Route>
+              <Route path="/dashboard/admin/users" element={<UsersPage />}/>
             </Route>
 
             {/* Fallback */}

@@ -15,7 +15,6 @@ import {
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import RoleSelectionModal from "./users/RoleSelectorModal";
-
 export default function AdminDashboard() {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [isRoleModalOpen, setIsRoleModalOpen] = useState(false);
