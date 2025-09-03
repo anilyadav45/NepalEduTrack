@@ -36,7 +36,7 @@ export default function AdminDashboard() {
           {/* Add User Button */}
           <button
             onClick={() => setIsRoleModalOpen(true)}
-            className="flex items-center justify-center bg-cyan-600 text-white px-4 py-3 rounded-lg hover:bg-cyan-700 transition w-full md:w-auto"
+            className="flex items-center justify-center bg-cyan-600 text-white px-4 py-3 rounded-lg hover:bg-cyan-700 transition w-full md:w-auto cursor-pointer"
           >
             <PlusCircle className="h-5 w-5 mr-2" />
             Add New User

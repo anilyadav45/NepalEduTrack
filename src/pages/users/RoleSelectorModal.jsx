@@ -26,13 +26,13 @@ export default function RoleSelectionModal({ isOpen, onClose }) {
         <h2 className="text-2xl font-bold text-blue-800 mb-6 text-center">Select User Role</h2>
         <div className="flex flex-col gap-4">
           <button
-            className="px-6 py-3 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition-all duration-200 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 font-medium"
+            className="px-6 py-3 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700 transition-all duration-200 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 font-medium cursor-pointer"
             onClick={() => handleSelect("student")}
           >
             Student
           </button>
           <button
-            className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-200 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 font-medium"
+            className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-200 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-400 font-medium cursor-pointer"
             onClick={() => handleSelect("teacher")}
           >
             Teacher
